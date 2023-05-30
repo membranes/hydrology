@@ -1,4 +1,4 @@
-package main.scala.com.grey
+package com.grey
 
 object HydroApp {
 
