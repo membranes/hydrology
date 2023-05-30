@@ -1,14 +1,24 @@
 package com.grey
 
-import com.grey.environment.LocalSettings
+import com.grey.environment.{LocalDirectories, LocalSettings}
 import com.typesafe.scalalogging
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
+import org.slf4j.LoggerFactory
 
+
+/**
+ *
+ */
 object HydroApp {
 
   private val localSettings = new LocalSettings()
+  private val localDirectories = new LocalDirectories()
 
+  /**
+   *
+   * @param args: Input arguments, if any
+   */
   def main(args: Array[String]): Unit = {
 
     // Minimising log print-outs
@@ -27,8 +37,7 @@ object HydroApp {
     spark.sparkContext.setLogLevel("ERROR")
 
 
-    //
-    /* == Configuring for computation ==
+    /* Configuring for computation
      *
      * java.lang.Runtime.getRuntime.availableProcessors() deduces the number of machine threads
      * spark.sql.shuffle.partitions: The number of shuffle partitions for joins & aggregation
@@ -39,6 +48,12 @@ object HydroApp {
     val threads: Int = scala.math.ceil(java.lang.Runtime.getRuntime.availableProcessors()).toInt
     spark.conf.set("spark.sql.shuffle.partitions", threads.toString)
     spark.conf.set("spark.default.parallelism", threads.toString)
+
+
+    // Directories; empty the outputs directory
+    val logger = scalalogging.Logger(LoggerFactory.getLogger(getClass))
+    logger.info(localSettings.warehouseDirectory)
+    localDirectories.localDirectoryReset(directoryName = localSettings.warehouseDirectory)
 
   }
 
