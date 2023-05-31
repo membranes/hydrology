@@ -8,12 +8,25 @@ import java.nio.file.Paths
 import scala.util.Try
 import scala.util.control.Exception
 
+
+/**
+ *
+ * @param name: The name of the environment agency's API (Application Programming Interface) conf file
+ */
 class EnvironmentAgencyAPI(name: String) {
 
   private val localSettings = new LocalSettings()
   private val path: String = Paths.get(localSettings.configurationsDirectory, name).toString
 
-  def environmentAgencyAPI(node: String, group: String, variable: String): String = {
+  /**
+   *
+   * @param node: A node/object of the configuration file
+   * @param group: A group within the aforementioned node/object 
+   * @param key: The key of a key/value pair within the aforementioned group
+   * @return
+   */
+  def environmentAgencyAPI(node: String, group: String, key: String): String = {
+
 
     /**
      * Read a node of the configuration file
@@ -27,21 +40,16 @@ class EnvironmentAgencyAPI(name: String) {
 
 
     /**
-     * Query formula
+     * Query a node/object, i.e., get the value of <key> in a <group>
      */
-
-      val text = Exception.allCatch.withTry(
-        config.get.getConfig(group).getString(variable)
-      )
-      if (text.isFailure) {
-        sys.error(text.failed.get.getMessage)
-      } else {
-        text.get
-      }
-
-
-
-
+    val text = Exception.allCatch.withTry(
+      config.get.getConfig(group).getString(key)
+    )
+    if (text.isFailure) {
+      sys.error(text.failed.get.getMessage)
+    } else {
+      text.get
+    }
 
 
   }
