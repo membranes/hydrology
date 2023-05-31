@@ -55,6 +55,12 @@ object HydroApp {
     logger.info(localSettings.warehouseDirectory)
     localDirectories.localDirectoryReset(directoryName = localSettings.warehouseDirectory)
 
+
+    // Steps
+    val dataSteps = new DataSteps(spark = spark)
+    dataSteps.dataSteps()
+
+
   }
 
 }
