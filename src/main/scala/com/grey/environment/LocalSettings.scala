@@ -21,5 +21,6 @@ class LocalSettings {
   // Resources directory
   private val resourcesDirectory: String = Paths.get(projectDirectory, "src", "main", "resources").toString
   val schemataDirectory: String = Paths.get(resourcesDirectory, "schemata").toString
+  val configurationsDirectory: String = Paths.get(resourcesDirectory, "configurations").toString
 
 }
