@@ -27,7 +27,6 @@ class EnvironmentAgencyAPI(name: String) {
    */
   def environmentAgencyAPI(node: String, group: String, key: String): String = {
 
-
     /**
      * Read a node of the configuration file
      */
@@ -37,7 +36,6 @@ class EnvironmentAgencyAPI(name: String) {
     if (config.isFailure) {
       sys.error(config.failed.get.getMessage)
     }
-
 
     /**
      * Query a node/object, i.e., get the value of <key> in a <group>
@@ -50,7 +48,6 @@ class EnvironmentAgencyAPI(name: String) {
     } else {
       text.get
     }
-
 
   }
 
