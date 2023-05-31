@@ -20,25 +20,31 @@ class SchemaOf(spark: SparkSession) {
 
   /**
    *
-   * @param schemaFile: The name of a JSON schema file, including its extension
+   * @param schemaString: The name of a JSON schema file, including its extension
    */
-  def schemaOf(schemaFile: String): Try[StructType] = {
+  def schemaOf(schemaString: String): Try[StructType] = {
 
     // The <path + file name + extension> of schema JSON file
-    val schemaFileString: String = Paths.get(localSettings.schemataDirectory, schemaFile).toString
+    val pathString: String = Paths.get(localSettings.schemataDirectory, schemaString).toString
 
     // Read-in the schema
     val fieldProperties: Try[RDD[String]] = Exception.allCatch.withTry(
-      spark.sparkContext.textFile(schemaFileString)
+      spark.sparkContext.textFile(pathString)
     )
 
     // Convert schema to StructType
-    if (fieldProperties.isSuccess) {
+    val schema: Try[StructType] = if (fieldProperties.isSuccess) {
       Exception.allCatch.withTry(
         DataType.fromJson(fieldProperties.get.collect.mkString("")).asInstanceOf[StructType]
       )
     } else {
       sys.error(fieldProperties.failed.get.getMessage)
+    }
+
+    if (schema.isSuccess) {
+      schema
+    } else {
+      sys.error(schema.failed.get.getMessage)
     }
 
   }
