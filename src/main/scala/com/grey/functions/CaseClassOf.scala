@@ -20,5 +20,4 @@ object CaseClassOf {
 
   }
 
-
 }
