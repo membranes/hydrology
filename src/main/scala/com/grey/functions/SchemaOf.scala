@@ -9,6 +9,11 @@ import java.nio.file.Paths
 import scala.util.Try
 import scala.util.control.Exception
 
+
+/**
+ *
+ * @param spark: An instance of SparkSession
+ */
 class SchemaOf(spark: SparkSession) {
 
   private val localSettings = new LocalSettings()
@@ -17,11 +22,10 @@ class SchemaOf(spark: SparkSession) {
    *
    * @param schemaFile: The name of a JSON schema file, including its extension
    */
-  def schemaOf(schemaFile: String): Unit = {
+  def schemaOf(schemaFile: String): Try[StructType] = {
 
     // The <path + file name + extension> of schema JSON file
     val schemaFileString: String = Paths.get(localSettings.schemataDirectory, schemaFile).toString
-
 
     // Read-in the schema
     val fieldProperties: Try[RDD[String]] = Exception.allCatch.withTry(
@@ -36,8 +40,6 @@ class SchemaOf(spark: SparkSession) {
     } else {
       sys.error(fieldProperties.failed.get.getMessage)
     }
-
-
 
   }
 
