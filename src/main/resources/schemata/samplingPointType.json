@@ -7,7 +7,7 @@
       "nullable": false,
       "metadata":
       {
-        "comment": "The text"
+        "comment": "The unique identification text of a sampling point type."
       }
     },
     {
