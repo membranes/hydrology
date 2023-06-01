@@ -18,7 +18,7 @@ class DataSteps(spark: SparkSession) {
   def dataSteps(): Unit = {
 
     // A reference asset of interest
-    val name = "determinands"
+    val name = "samplingPointTypes"
     val node: EnvironmentAgency.Node = getNode.environmentAgencyNode(name = name)
 
     // Download a reference data asset
