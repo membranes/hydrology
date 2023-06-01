@@ -1,4 +1,4 @@
-package com.grey.interfaces
+package com.grey.configurations
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.ObjectMapper
