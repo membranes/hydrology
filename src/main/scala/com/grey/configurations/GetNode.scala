@@ -1,7 +1,6 @@
 package com.grey.configurations
 
-import com.grey.interfaces.EnvironmentAgency
-import com.grey.interfaces.EnvironmentAgency.Node
+import EnvironmentAgency.Node
 
 class GetNode(nodes: EnvironmentAgency.EnvironmentAgency) {
 
