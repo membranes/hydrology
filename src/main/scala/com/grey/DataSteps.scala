@@ -11,7 +11,7 @@ import java.nio.file.Paths
 
 class DataSteps(spark: SparkSession) {
 
-  private val environmentAgencyAPI = new EnvironmentAgencyAPI(name = "EnvironmentAgencyAPI.conf")
+  private val environmentAgencyAPI = new EnvironmentAgencyAPI(name = "EnvironmentAgency.conf")
   private val getReference = new GetReferenceData(spark = spark)
   private val localSettings = new LocalSettings()
 
