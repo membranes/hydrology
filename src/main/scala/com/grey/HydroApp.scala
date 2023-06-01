@@ -1,6 +1,6 @@
 package com.grey
 
-import com.grey.configurations.{EnvironmentAgency, GetNode}
+import com.grey.configurations.{EnvironmentAgency, EnvironmentAgencyNode}
 import com.grey.environment.{LocalDirectories, LocalSettings}
 import com.grey.functions.UnloadDocument
 import com.typesafe.scalalogging
