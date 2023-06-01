@@ -7,12 +7,12 @@ import com.grey.interfaces.EnvironmentAgencyInterface.EnvironmentAgencyCase
 
 import java.nio.file.Paths
 
-class ReferenceDocument {
+class ReferenceAsset {
 
   private val environmentAgencyAPI = new EnvironmentAgencyAPI(name = "EnvironmentAgency.conf")
   private val localSettings = new LocalSettings()
 
-  def referenceDocument(): Unit = {
+  def referenceAsset(): Unit = {
 
     // Test
     val unloadDocument = new UnloadDocument()
