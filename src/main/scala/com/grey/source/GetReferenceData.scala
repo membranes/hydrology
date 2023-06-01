@@ -2,19 +2,16 @@ package com.grey.source
 
 import com.grey.environment.LocalSettings
 import com.grey.functions.{CaseClassOf, SchemaOf}
-import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 import org.apache.spark.sql.types.StructType
-import org.apache.commons.io
-import org.apache.commons.io.IOUtils
+import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 
-import java.net.URL
 import scala.util.Try
 import scala.util.control.Exception
 
 class GetReferenceData(spark: SparkSession) {
 
   private val schemaOf = new SchemaOf(spark = spark)
-  val localSettings = new LocalSettings()
+  private val localSettings = new LocalSettings()
 
   def getReferenceData(uri: String, schemaString: String): Dataset[Row] = {
 
