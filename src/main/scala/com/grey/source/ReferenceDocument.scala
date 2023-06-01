@@ -12,7 +12,7 @@ class ReferenceDocument {
   private val environmentAgencyAPI = new EnvironmentAgencyAPI(name = "EnvironmentAgency.conf")
   private val localSettings = new LocalSettings()
 
-  def references(): Unit = {
+  def referenceDocument(): Unit = {
 
     // Test
     val unloadDocument = new UnloadDocument()
