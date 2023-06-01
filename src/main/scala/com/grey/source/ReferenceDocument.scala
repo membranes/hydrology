@@ -7,7 +7,7 @@ import com.grey.interfaces.EnvironmentAgencyInterface.EnvironmentAgencyCase
 
 import java.nio.file.Paths
 
-class References {
+class ReferenceDocument {
 
   private val environmentAgencyAPI = new EnvironmentAgencyAPI(name = "EnvironmentAgency.conf")
   private val localSettings = new LocalSettings()
