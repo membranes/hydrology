@@ -3,7 +3,7 @@ package com.grey
 import com.grey.configurations.EnvironmentAgencyAPI
 import com.grey.environment.LocalSettings
 import com.grey.interfaces.EnvironmentAgencyInterface
-import com.grey.interfaces.EnvironmentAgencyInterface.EnvironmentAgency
+import com.grey.interfaces.EnvironmentAgencyInterface.EnvironmentAgencyCase
 import com.grey.source.GetReferenceData
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
@@ -18,10 +18,10 @@ class DataSteps(spark: SparkSession) {
   def dataSteps(): Unit = {
 
     val baseString = environmentAgencyAPI.environmentAgencyAPI(
-      interface = EnvironmentAgency(node = "reference", group = "base", key = "determinands"))
+      interface = EnvironmentAgencyCase(node = "reference", group = "base", key = "determinands"))
 
     val schemaString = environmentAgencyAPI.environmentAgencyAPI(
-      interface = EnvironmentAgency(node = "reference", group = "schema", key = "determinands"))
+      interface = EnvironmentAgencyCase(node = "reference", group = "schema", key = "determinands"))
 
     val uri = Paths.get(localSettings.dataDirectory, "references", baseString).toString
 
