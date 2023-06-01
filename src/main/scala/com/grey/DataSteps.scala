@@ -1,7 +1,7 @@
 package com.grey
 
+import com.grey.configurations.{EnvironmentAgency, GetNode}
 import com.grey.environment.LocalSettings
-import com.grey.interfaces.{EnvironmentAgency, GetNode}
 import com.grey.source.{ReferenceAsset, ReferenceData}
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
