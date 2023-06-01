@@ -2,9 +2,9 @@ package com.grey.configurations
 
 import EnvironmentAgency.Node
 
-class GetNode(nodes: EnvironmentAgency.EnvironmentAgency) {
+class GetEnvironmentAgencyNode(nodes: EnvironmentAgency.EnvironmentAgency) {
 
-  def getNode(name: String): Node = {
+  def getEnvironmentAgencyNode(name: String): Node = {
 
     val excerpt: List[Node] = nodes.nodes.filter(_.name == name)
 
