@@ -1,7 +1,7 @@
 package com.grey.configurations
 
 import com.grey.environment.LocalSettings
-import com.grey.interfaces.EnvironmentAgencyInterface.EnvironmentAgency
+import com.grey.interfaces.EnvironmentAgencyInterface.EnvironmentAgencyCase
 import com.typesafe.config.{Config, ConfigFactory}
 
 import java.io.File
@@ -26,7 +26,7 @@ class EnvironmentAgencyAPI(name: String) {
    *      key: The key of a key/value pair within the aforementioned group
    * @return
    */
-  def environmentAgencyAPI(interface: EnvironmentAgency): String = {
+  def environmentAgencyAPI(interface: EnvironmentAgencyCase): String = {
 
     /**
      * Read a node of the configuration file
