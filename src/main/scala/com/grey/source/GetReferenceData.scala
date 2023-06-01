@@ -11,12 +11,12 @@ import java.net.URL
 import scala.util.Try
 import scala.util.control.Exception
 
-class GetReference(spark: SparkSession) {
+class GetReferenceData(spark: SparkSession) {
 
   private val schemaOf = new SchemaOf(spark = spark)
   val localSettings = new LocalSettings()
 
-  def getReference(uri: String, schemaString: String): Dataset[Row] = {
+  def getReferenceData(uri: String, schemaString: String): Dataset[Row] = {
 
     // Get the schema details of the reference file
     val schema: Try[StructType] = schemaOf.schemaOf(schemaString = schemaString)
