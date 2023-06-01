@@ -9,7 +9,7 @@ import java.nio.file.Paths
 
 class References {
 
-  private val environmentAgencyAPI = new EnvironmentAgencyAPI(name = "EnvironmentAgencyAPI.conf")
+  private val environmentAgencyAPI = new EnvironmentAgencyAPI(name = "EnvironmentAgency.conf")
   private val localSettings = new LocalSettings()
 
   def references(): Unit = {
