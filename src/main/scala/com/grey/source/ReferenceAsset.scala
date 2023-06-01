@@ -25,7 +25,7 @@ class ReferenceAsset {
     // Unload
     val urlString = node.url
     unloadDocument.unloadDocument(urlString = urlString + "?_limit=1000000",
-      pathString = Paths.get(localSettings.referencesDirectory, urlString.split("/").reverse.head).toString)
+      pathString = Paths.get(localSettings.referencesDirectory, node.base).toString)
 
   }
 
