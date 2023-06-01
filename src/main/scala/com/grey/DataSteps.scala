@@ -1,31 +1,32 @@
 package com.grey
 
-import com.grey.configurations.EnvironmentAgencyAPI
 import com.grey.environment.LocalSettings
-import com.grey.interfaces.EnvironmentAgencyInterface
-import com.grey.interfaces.EnvironmentAgencyInterface.EnvironmentAgencyCase
-import com.grey.source.GetReferenceData
+import com.grey.interfaces.{EnvironmentAgency, GetNode}
+import com.grey.source.{ReferenceAsset, ReferenceData}
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 import java.nio.file.Paths
 
 class DataSteps(spark: SparkSession) {
 
-  private val environmentAgencyAPI = new EnvironmentAgencyAPI(name = "EnvironmentAgency.conf")
-  private val getReference = new GetReferenceData(spark = spark)
+  private val nodes: EnvironmentAgency.EnvironmentAgency = EnvironmentAgency.environmentAgency()
+  private val getNode: GetNode = new GetNode(nodes = nodes)
+
+  private val getReference = new ReferenceData(spark = spark)
   private val localSettings = new LocalSettings()
 
   def dataSteps(): Unit = {
 
-    val baseString = environmentAgencyAPI.environmentAgencyAPI(
-      interface = EnvironmentAgencyCase(node = "reference", group = "base", key = "determinands"))
+    // A reference asset of interest
+    val name = "determinands"
+    val node: EnvironmentAgency.Node = getNode.getNode(name = name)
 
-    val schemaString = environmentAgencyAPI.environmentAgencyAPI(
-      interface = EnvironmentAgencyCase(node = "reference", group = "schema", key = "determinands"))
+    // Download a reference data asset
+    new ReferenceAsset().referenceAsset(node = node)
 
-    val uri = Paths.get(localSettings.dataDirectory, "references", baseString).toString
-
-    val determinands: Dataset[Row] = getReference.getReferenceData(uri = uri, schemaString = schemaString)
+    // Read the reference data asset
+    val uri = Paths.get(localSettings.dataDirectory, "references", node.base).toString
+    val determinands: Dataset[Row] = getReference.referenceData(uri = uri, schemaString = node.schema)
     determinands.show()
 
   }
