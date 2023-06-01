@@ -8,12 +8,12 @@ import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 import scala.util.Try
 import scala.util.control.Exception
 
-class GetReferenceData(spark: SparkSession) {
+class ReferenceData(spark: SparkSession) {
 
   private val schemaOf = new SchemaOf(spark = spark)
   private val localSettings = new LocalSettings()
 
-  def getReferenceData(uri: String, schemaString: String): Dataset[Row] = {
+  def referenceData(uri: String, schemaString: String): Dataset[Row] = {
 
     // Get the schema details of the reference file
     val schema: Try[StructType] = schemaOf.schemaOf(schemaString = schemaString)
