@@ -13,7 +13,8 @@ class LocalSettings {
   private val separator: String = System.getProperty("file.separator")
 
   // Data directory
-  val dataDirectory: String = s"$projectDirectory${separator}data"
+  private val dataDirectory: String = s"$projectDirectory${separator}data"
+  val referencesDirectory: String = Paths.get(dataDirectory, "references").toString
 
   // Warehouse directory
   val warehouseDirectory: String = Paths.get(projectDirectory, "warehouse").toString
