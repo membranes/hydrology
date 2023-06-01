@@ -1,10 +1,13 @@
 package com.grey
 
 import com.grey.environment.{LocalDirectories, LocalSettings}
+import com.grey.source.UnloadDocument
 import com.typesafe.scalalogging
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
 import org.slf4j.LoggerFactory
+
+import java.nio.file.Paths
 
 
 /**
@@ -54,6 +57,10 @@ object HydroApp {
     val logger = scalalogging.Logger(LoggerFactory.getLogger(getClass))
     logger.info(localSettings.warehouseDirectory)
     localDirectories.localDirectoryReset(directoryName = localSettings.warehouseDirectory)
+
+
+    // References
+    new References().references()
 
 
     // Steps
