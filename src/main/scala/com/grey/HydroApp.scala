@@ -1,7 +1,7 @@
 package com.grey
 
 import com.grey.environment.{LocalDirectories, LocalSettings}
-import com.grey.source.UnloadDocument
+import com.grey.functions.UnloadDocument
 import com.typesafe.scalalogging
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
