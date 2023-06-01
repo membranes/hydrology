@@ -7,3 +7,11 @@ nodes:
     url: "https://environment.data.gov.uk/water-quality/def/sampling-point-types.csv"
     base: "sampling-point-types.csv"
     schema: "sampling-point-types.json"
+  - name: environmentAgencyArea
+    url: "https://environment.data.gov.uk/water-quality/id/ea-area.csv"
+    base: "environment-agency-area.csv"
+    schema: "environment-agency-area.json"
+  - name: environmentAgencySubarea
+    url: "https://environment.data.gov.uk/water-quality/id/ea-subarea.csv"
+    base: "environment-agency-subarea.csv"
+    schema: "environment-agency-subarea.json"
