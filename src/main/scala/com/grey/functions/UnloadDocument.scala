@@ -1,10 +1,9 @@
-package com.grey.source
+package com.grey.functions
 
 import org.apache.commons.io.FileUtils
 
 import java.io.File
 import java.net.URL
-
 import scala.util.control.Exception
 
 class UnloadDocument {
