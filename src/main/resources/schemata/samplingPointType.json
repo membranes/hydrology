@@ -1,0 +1,68 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The text"
+      }
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The label, name, of the sampling point of a set of chemical determinands."
+      }
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "An indiscernible legacy field."
+      }
+    },
+    {
+      "name": "sameAs",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "An indiscernible legacy field."
+      }
+    },
+    {
+      "name": "notation",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unique identification code of a sampling point type."
+      }
+    },
+    {
+      "name": "group",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The parent group of a sampling point type belongs to; URL (Uniform Resource Locator) code format."
+      }
+    },
+    {
+      "name": "group.label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The descriptive text of the parent group of a sampling point type."
+      }
+    }
+  ]
+}
