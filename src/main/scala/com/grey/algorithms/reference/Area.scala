@@ -24,7 +24,7 @@ class Area(spark: SparkSession) {
     // The names of the relevant columns in the raw data file, and the preferred
     // names, i.e., <synonyms>
     val names = Seq("notation", "label")
-    val synonyms = Seq("area_id", "description")
+    val synonyms = Seq("area_id", "area_desc")
 
     // The relevant area columns
     var data: DataFrame = reference.selectExpr(names: _*)
