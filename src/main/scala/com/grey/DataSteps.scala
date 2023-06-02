@@ -6,7 +6,13 @@ import com.grey.source.{ReferenceAsset, ReferenceData}
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 import java.nio.file.Paths
+import scala.collection.parallel.ParSeq
 
+
+/**
+ *
+ * @param spark: A instance of SparkSession
+ */
 class DataSteps(spark: SparkSession) {
 
   private val nodes: EnvironmentAgency.EnvironmentAgency = EnvironmentAgency.environmentAgency()
@@ -15,19 +21,33 @@ class DataSteps(spark: SparkSession) {
   private val getReference = new ReferenceData(spark = spark)
   private val localSettings = new LocalSettings()
 
+
+  /**
+   *
+   */
   def dataSteps(): Unit = {
 
-    // A reference asset of interest
-    val name = "determinands"
-    val node: EnvironmentAgency.Node = getNode.environmentAgencyNode(name = name)
+    // Nodes
+    val names: Seq[String] = List("determinands", "environment-agency-area", "environment-agency-subarea",
+      "sampling-point", "sampling-point-types")
+    val nodes: ParSeq[EnvironmentAgency.Node] = names.par.map{ name =>
+      getNode.environmentAgencyNode(name = name)
+    }
 
-    // Download a reference data asset
-    new ReferenceAsset().referenceAsset(node = node)
+    // Downloading the reference assets of interest
+    nodes.par.foreach{node =>
+      // Download the reference data asset
+      new ReferenceAsset().referenceAsset(node = node)
+    }
 
-    // Read the reference data asset
-    val uri = Paths.get(localSettings.referencesDirectory, node.base).toString
-    val determinands: Dataset[Row] = getReference.referenceData(uri = uri, schemaString = node.schema)
-    determinands.show()
+    // Previewing
+    nodes.par.foreach{node =>
+      // Read the reference data asset
+      val uri = Paths.get(localSettings.referencesDirectory, node.base).toString
+      val reference: Dataset[Row] = getReference.referenceData(uri = uri, schemaString = node.schema)
+      // Preview
+      reference.show()
+    }
 
   }
 
