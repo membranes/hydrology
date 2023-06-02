@@ -25,6 +25,7 @@ class ReferenceData(spark: SparkSession) {
         .format("csv")
         .option("header", value = true)
         .option("encoding", "UTF-8")
+        .option("locale", "en-GB")
         .load(uri)
     )
 
