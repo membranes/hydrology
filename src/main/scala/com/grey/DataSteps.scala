@@ -18,7 +18,7 @@ class DataSteps(spark: SparkSession) {
   private val nodes: EnvironmentAgency.EnvironmentAgency = EnvironmentAgency.environmentAgency()
   private val getNode: EnvironmentAgencyNode = new EnvironmentAgencyNode(nodes = nodes)
 
-  private val getReference = new ReferenceData(spark = spark)
+  private val referenceData = new ReferenceData(spark = spark)
   private val localSettings = new LocalSettings()
 
 
@@ -41,12 +41,15 @@ class DataSteps(spark: SparkSession) {
     }
 
     // Previewing
-    nodes.par.foreach{node =>
+    nodes.foreach{node =>
+
       // Read the reference data asset
       val uri = Paths.get(localSettings.referencesDirectory, node.base).toString
-      val reference: Dataset[Row] = getReference.referenceData(uri = uri, schemaString = node.schema)
+      val reference: Dataset[Row] = referenceData.referenceData(uri = uri, schemaString = node.schema)
+
       // Preview
       reference.show()
+
     }
 
   }
