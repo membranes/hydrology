@@ -35,6 +35,11 @@ class Area(spark: SparkSession) {
     }
 
     // Save
+    data.coalesce(numPartitions = 1).write
+      .format("csv")
+      .option(key = "encoding", value = "UTF-8")
+      .option(key = "header", "true")
+      .save(path = "")
 
 
   }
