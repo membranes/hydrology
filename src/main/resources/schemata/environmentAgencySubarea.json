@@ -16,7 +16,7 @@
       "nullable": false,
       "metadata":
       {
-        "comment": "The label, i.e., short name, of a subarea."
+        "comment": "The label, i.e., name, of a subarea."
       }
     },
     {
