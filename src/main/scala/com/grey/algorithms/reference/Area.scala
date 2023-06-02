@@ -1,6 +1,7 @@
 package com.grey.algorithms.reference
 
 import com.grey.environment.LocalSettings
+import org.apache.spark.sql.functions.{col, trim}
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 
 import java.nio.file.Paths
@@ -32,6 +33,7 @@ class Area(spark: SparkSession) {
     val fields: Seq[(String, String)] = names.zip(synonyms)
     fields.foreach { case (name: String, synonym: String) =>
       data = data.withColumnRenamed(existingName = name, newName = synonym)
+      data = data.withColumn(synonym, trim(col(synonym)))
     }
 
     // Save
