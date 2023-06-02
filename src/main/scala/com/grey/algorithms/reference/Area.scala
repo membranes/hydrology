@@ -1,8 +1,9 @@
 package com.grey.algorithms.reference
 
 import com.grey.environment.LocalSettings
-import com.grey.source.ReferenceData
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
+
+import java.nio.file.Paths
 
 
 /**
@@ -11,7 +12,6 @@ import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
  */
 class Area(spark: SparkSession) {
 
-  private val referenceData = new ReferenceData(spark = spark)
   private val localSettings = new LocalSettings()
 
   /**
@@ -39,7 +39,7 @@ class Area(spark: SparkSession) {
       .format("csv")
       .option(key = "encoding", value = "UTF-8")
       .option(key = "header", "true")
-      .save(path = "")
+      .save(path = Paths.get(localSettings.referencesWarehouse, "environment_agency_area.csv").toString)
 
 
   }
