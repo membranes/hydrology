@@ -1,6 +1,6 @@
 package com.grey.environment
 
-import java.nio.file.Paths
+import java.nio.file.{Path, Paths}
 
 
 /**
@@ -18,6 +18,7 @@ class LocalSettings {
 
   // Warehouse directory
   val warehouseDirectory: String = Paths.get(projectDirectory, "warehouse").toString
+  val referencesWarehouse: String = Paths.get(warehouseDirectory, "references").toString
 
   // Resources directory
   private val resourcesDirectory: String = Paths.get(projectDirectory, "src", "main", "resources").toString
