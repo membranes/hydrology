@@ -3,17 +3,36 @@ package com.grey.algorithms.reference
 import org.apache.spark.sql.functions.{col, trim}
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 
+
+/**
+ *
+ * @param spark: An instance of SparkSession
+ */
 class SamplingPoint(spark: SparkSession) {
 
+  /**
+   *
+   * @param reference: The raw data
+   */
   def samplingPoint(reference: Dataset[Row]): Unit = {
+
+
+    // Addressing the <dot> issue
+    val blob = reference.toDF(reference.columns.map(_.replace(".", "_")): _*)
+
 
     // The names of the relevant columns in the raw data file, and the preferred
     // names, i.e., <synonyms>
-    val names = Seq("notation", "label", "comment", "easting", "northing", "lat", "long", "")
-    val synonyms = Seq("sampling_point_id", "sampling_point_desc", "definition", "unit_of_measure", "unit_of_measure_desc")
+    val names = Seq("notation", "label", "comment", "easting", "northing", "lat", "long",
+      "area_label", "subArea_label", "samplingPointType_label", "samplingPointStatus_label")
+    val synonyms = Seq("sampling_point_id", "sampling_point_desc", "sampling_point_definition",
+      "easting", "northing", "latitude", "longitude", "area_desc", "subarea_desc", "sampling_point_type_desc",
+      "sampling_point_state")
+
 
     // The relevant area columns
-    var data: DataFrame = reference.selectExpr(names: _*)
+    var data: DataFrame = blob.selectExpr(names: _*)
+
 
     // Renaming
     val fields: Seq[(String, String)] = names.zip(synonyms)
@@ -22,7 +41,6 @@ class SamplingPoint(spark: SparkSession) {
       data = data.withColumn(synonym, trim(col(synonym)))
     }
     data.show()
-
 
   }
 
