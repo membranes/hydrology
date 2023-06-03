@@ -1,14 +1,10 @@
 package com.grey
 
-import com.grey.configurations.{EnvironmentAgency, EnvironmentAgencyNode}
 import com.grey.environment.{LocalDirectories, LocalSettings}
-import com.grey.functions.UnloadDocument
 import com.typesafe.scalalogging
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
 import org.slf4j.LoggerFactory
-
-import java.nio.file.Paths
 
 
 /**
@@ -21,7 +17,7 @@ object HydroApp {
 
   /**
    *
-   * @param args: Input arguments, if any
+   * @param args : Input arguments, if any
    */
   def main(args: Array[String]): Unit = {
 
