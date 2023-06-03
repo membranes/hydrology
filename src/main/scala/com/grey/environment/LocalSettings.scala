@@ -10,7 +10,7 @@ class LocalSettings {
 
   // The environment
   private val projectDirectory: String = System.getProperty("user.dir")
-  private val separator: String = System.getProperty("file.separator")
+  val separator: String = System.getProperty("file.separator")
 
   // Data directory
   private val dataDirectory: String = s"$projectDirectory${separator}data"
