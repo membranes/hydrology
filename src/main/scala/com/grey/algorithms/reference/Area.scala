@@ -21,13 +21,17 @@ class Area(spark: SparkSession) {
    */
   def area(reference: Dataset[Row]): Unit = {
 
+
     // The names of the relevant columns in the raw data file, and the preferred
     // names, i.e., <synonyms>
     val names = Seq("notation", "label")
     val synonyms = Seq("area_id", "area_desc")
 
+
     // The relevant area columns
     var data: DataFrame = reference.selectExpr(names: _*)
+    data.show()
+
 
     // Renaming
     val fields: Seq[(String, String)] = names.zip(synonyms)
@@ -35,13 +39,7 @@ class Area(spark: SparkSession) {
       data = data.withColumnRenamed(existingName = name, newName = synonym)
       data = data.withColumn(synonym, trim(col(synonym)))
     }
-
-    // Save
-    data.coalesce(numPartitions = 1).write
-      .format("csv")
-      .option(key = "encoding", value = "UTF-8")
-      .option(key = "header", "true")
-      .save(path = Paths.get(localSettings.referencesWarehouse, "environment_agency_area.csv").toString)
+    data.show()
 
 
   }
