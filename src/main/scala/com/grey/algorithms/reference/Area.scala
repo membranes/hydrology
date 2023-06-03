@@ -1,10 +1,7 @@
 package com.grey.algorithms.reference
 
-import com.grey.environment.LocalSettings
 import org.apache.spark.sql.functions.{col, trim}
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
-
-import java.nio.file.Paths
 
 
 /**
@@ -13,7 +10,7 @@ import java.nio.file.Paths
  */
 class Area(spark: SparkSession) {
 
-  private val localSettings = new LocalSettings()
+
 
   /**
    *
@@ -41,6 +38,15 @@ class Area(spark: SparkSession) {
     }
     data.show()
 
+
+    // Save
+    /*
+    data.coalesce(numPartitions = 1).write.format("csv")
+      .option("encoding", "UTF-8")
+      .option("header", "true")
+      .save(path = Paths.get(localSettings.referencesWarehouse, "area").toString
+        + localSettings.separator)
+    */
 
   }
 
