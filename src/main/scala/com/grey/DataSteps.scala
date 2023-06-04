@@ -1,6 +1,6 @@
 package com.grey
 
-import com.grey.algorithms.reference.ReferenceInterface
+import com.grey.algorithms.reference.Structuring
 import com.grey.configurations.{EnvironmentAgency, EnvironmentAgencyNode}
 import com.grey.environment.LocalSettings
 import com.grey.source.{ReferenceAsset, ReferenceData}
@@ -19,7 +19,7 @@ class DataSteps(spark: SparkSession) {
 
   private val nodes: EnvironmentAgency.EnvironmentAgency = EnvironmentAgency.environmentAgency()
   private val getNode: EnvironmentAgencyNode = new EnvironmentAgencyNode(nodes = nodes)
-  private val referenceInterface = new ReferenceInterface(spark = spark)
+  private val referenceInterface = new Structuring(spark = spark)
 
   private val referenceData = new ReferenceData(spark = spark)
   private val localSettings = new LocalSettings()
