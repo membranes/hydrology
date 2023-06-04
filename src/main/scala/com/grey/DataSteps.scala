@@ -51,7 +51,7 @@ class DataSteps(spark: SparkSession) {
       val uri = Paths.get(localSettings.referencesDirectory, node.base).toString
       val reference: Dataset[Row] = referenceData.referenceData(uri = uri, schemaString = node.schema)
       // Structure
-      referenceInterface.referenceInterface(node = node, reference = reference)
+      referenceInterface.structuringMiscellaneous(node = node, reference = reference)
     }
 
   }
