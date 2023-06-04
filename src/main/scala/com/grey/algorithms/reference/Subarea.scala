@@ -1,5 +1,6 @@
 package com.grey.algorithms.reference
 
+import com.grey.functions.CaseClassOf
 import org.apache.spark.sql.expressions.UserDefinedFunction
 import org.apache.spark.sql.functions.{col, trim, udf}
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
@@ -17,7 +18,7 @@ class Subarea(spark: SparkSession) {
    *
    * @param reference : The raw data
    */
-  def subarea(reference: Dataset[Row]): Unit = {
+  def subarea(reference: Dataset[Row]): Dataset[Row] = {
 
     /**
      * Import implicits for
@@ -52,7 +53,11 @@ class Subarea(spark: SparkSession) {
       x.split("/").reverse.head
     })
     val inspected = data.withColumn(colName = "area_id", col = equation($"area_id"))
-    inspected.show()
+
+
+    // Hence
+    val caseClassOf = CaseClassOf.caseClassOf(schema = inspected.schema)
+    inspected.as(caseClassOf)
 
   }
 
