@@ -51,8 +51,8 @@ class Subarea(spark: SparkSession) {
     val equation: UserDefinedFunction = udf((x: String) => {
       x.split("/").reverse.head
     })
-    val test = data.withColumn(colName = "area_id", col = equation($"area_id"))
-    test.show()
+    val inspected = data.withColumn(colName = "area_id", col = equation($"area_id"))
+    inspected.show()
 
   }
 
