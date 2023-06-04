@@ -46,7 +46,8 @@ class Subarea(spark: SparkSession) {
     }
 
 
-    // A test
+    // The <area_id> has been recorded in URL form.  The actual identification code
+    // is the base string of the URL, hence ...
     val equation: UserDefinedFunction = udf((x: String) => {
       x.split("/").reverse.head
     })
