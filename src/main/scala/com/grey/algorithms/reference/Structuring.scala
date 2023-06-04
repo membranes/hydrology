@@ -18,7 +18,7 @@ class Structuring(spark: SparkSession) {
       case "environment-agency-subarea" => subarea.subarea(reference = reference)
       case _ => sys.error("Missing")
     }
-    
+
   }
 
   def structuringMiscellaneous(node: EnvironmentAgency.Node, reference: Dataset[Row],
