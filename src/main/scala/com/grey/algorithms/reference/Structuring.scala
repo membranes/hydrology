@@ -11,15 +11,14 @@ class Structuring(spark: SparkSession) {
   private val samplingPointTypes = new SamplingPointTypes(spark = spark)
   private val subarea = new Subarea(spark = spark)
 
-  def structuringInitial(node: EnvironmentAgency.Node, reference: Dataset[Row]): Unit = {
+  def structuringInitial(node: EnvironmentAgency.Node, reference: Dataset[Row]): Dataset[Row] = {
 
     node.name match {
       case "sampling-point-types" => samplingPointTypes.samplingPointTypes(reference = reference)
       case "environment-agency-subarea" => subarea.subarea(reference = reference)
       case _ => sys.error("Missing")
     }
-
-
+    
   }
 
   def structuringMiscellaneous(node: EnvironmentAgency.Node, reference: Dataset[Row],
