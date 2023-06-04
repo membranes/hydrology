@@ -45,7 +45,11 @@ class DataSteps(spark: SparkSession) {
     }
 
 
-    // Structuring
+    // Structuring: The subarea & sampling point types
+
+
+
+    // Structuring: All else, i.e., filter out subarea & sampling point types
     nodes.foreach { node =>
       // Read the reference data asset
       val uri = Paths.get(localSettings.referencesDirectory, node.base).toString
