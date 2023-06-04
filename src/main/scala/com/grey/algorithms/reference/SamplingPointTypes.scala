@@ -54,7 +54,7 @@ class SamplingPointTypes(spark: SparkSession) {
     // Hence
     val caseClassOf = CaseClassOf.caseClassOf(schema = data.schema)
     data.as(caseClassOf)
-    
+
 
   }
 
