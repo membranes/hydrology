@@ -1,5 +1,6 @@
 package com.grey.algorithms.reference
 
+import com.grey.functions.CaseClassOf
 import org.apache.spark.sql.functions.{col, trim}
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 
@@ -14,7 +15,15 @@ class SamplingPointTypes(spark: SparkSession) {
    *
    * @param reference : The raw data
    */
-  def samplingPointTypes(reference: Dataset[Row]): Unit = {
+  def samplingPointTypes(reference: Dataset[Row]): Dataset[Row] = {
+
+    /**
+     * Import implicits for
+     * encoding (https://jaceklaskowski.gitbooks.io/mastering-apache-spark/spark-sql-Encoder.html)
+     * implicit conversions, e.g., converting a RDD to a DataFrames.
+     * access to the "$" notation.
+     */
+    import spark.implicits._
 
 
     // Addressing the <dot> issue
@@ -37,8 +46,15 @@ class SamplingPointTypes(spark: SparkSession) {
       data = data.withColumnRenamed(existingName = name, newName = synonym)
       data = data.withColumn(synonym, trim(col(synonym)))
     }
-    data.show()
 
+
+    // Save
+
+
+    // Hence
+    val caseClassOf = CaseClassOf.caseClassOf(schema = data.schema)
+    data.as(caseClassOf)
+    
 
   }
 
