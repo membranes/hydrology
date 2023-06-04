@@ -15,7 +15,7 @@
     <inceptionYear>2023</inceptionYear>
 
     <properties>
-        <scala.version>2.13.0-M1</scala.version>
+        <scala.version>2.13.10</scala.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,6 +34,13 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.scala-lang.modules/scala-parallel-collections -->
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-parallel-collections_2.13</artifactId>
+            <version>1.0.4</version>
         </dependency>
 
         <dependency>
@@ -77,7 +84,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.14.1</version>
+            <version>2.14.2</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
