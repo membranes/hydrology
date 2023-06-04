@@ -3,7 +3,7 @@ package com.grey.algorithms.reference
 import com.grey.configurations.EnvironmentAgency
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
-class ReferenceInterface(spark: SparkSession) {
+class Structuring(spark: SparkSession) {
 
   private val area = new Area(spark = spark)
   private val determinands = new Determinands(spark = spark)
