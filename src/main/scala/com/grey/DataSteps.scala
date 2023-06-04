@@ -7,7 +7,8 @@ import com.grey.source.{ReferenceAsset, ReferenceData}
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 import java.nio.file.Paths
-import scala.collection.parallel.ParSeq
+import scala.collection.parallel.CollectionConverters._
+import scala.collection.parallel.immutable.ParSeq
 
 
 /**
@@ -30,7 +31,7 @@ class DataSteps(spark: SparkSession) {
 
 
     // Nodes
-    val names: Seq[String] = List("determinands", "environment-agency-area", "environment-agency-subarea",
+    val names: List[String] = List("determinands", "environment-agency-area", "environment-agency-subarea",
       "sampling-point", "sampling-point-types")
     val nodes: ParSeq[EnvironmentAgency.Node] = names.par.map { name =>
       getNode.environmentAgencyNode(name = name)
