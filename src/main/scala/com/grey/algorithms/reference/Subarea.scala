@@ -55,6 +55,9 @@ class Subarea(spark: SparkSession) {
     val inspected = data.withColumn(colName = "area_id", col = equation($"area_id"))
 
 
+    // Save
+
+
     // Hence
     val caseClassOf = CaseClassOf.caseClassOf(schema = inspected.schema)
     inspected.as(caseClassOf)
