@@ -15,10 +15,10 @@ spark-class.cmd org.apache.spark.deploy.worker.Worker spark://___.___._.__:7077
 spark-submit --class com.grey.HydroApp 
 	--master spark://___.___._.__:7077 
 	--total-executor-cores 4 
-	target/hydro-#.#.##-jar-with-dependencies.jars
+	target/hydro-{#.#.##}-jar-with-dependencies.jars
 ```
 
-wherein `#.#.##` is the buld number.  The compile command is
+wherein `{#.#.##}` is the build number.  The compile command is
 
 ```Shell
 mvn clean package
