@@ -27,7 +27,6 @@ class Area(spark: SparkSession) {
 
     // The relevant area columns
     var data: DataFrame = reference.selectExpr(names: _*)
-    data.show()
 
 
     // Renaming
