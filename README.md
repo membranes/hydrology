@@ -13,7 +13,9 @@ spark-class.cmd org.apache.spark.deploy.master.Master
 spark-class.cmd org.apache.spark.deploy.worker.Worker spark://___.___._.__:7077
 
 spark-submit --class com.grey.HydroApp 
-	--master spark://___.___._.__:7077 --total-executor-cores 4 target/hydro-#.#.##-jar-with-dependencies.jars
+	--master spark://___.___._.__:7077 
+	--total-executor-cores 4 
+	target/hydro-#.#.##-jar-with-dependencies.jars
 ```
 
 wherein `#.#.##` is the buld number.  The compile command is
