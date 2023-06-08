@@ -1,0 +1,59 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unique identification text of a determinand."
+      }
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The label, i.e., short name, of the chemical determinand."
+      }
+    },
+    {
+      "name": "definition",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The descriptive name of the chemical determinand."
+      }
+    },
+    {
+      "name": "notation",
+      "type": "integer",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unique identification code of a chemical determinand."
+      }
+    },
+    {
+      "name": "unit.label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unit of measure symbol of a chemical determinand measurement."
+      }
+    },
+    {
+      "name": "unit.comment",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unit of measure description of a chemical determinand measurement."
+      }
+    }
+  ]
+}

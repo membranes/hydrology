@@ -1,0 +1,68 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unique identification text of a sampling point type."
+      }
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The label, name, of a sampling point type."
+      }
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "An indiscernible legacy field."
+      }
+    },
+    {
+      "name": "sameAs",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "An indiscernible legacy field."
+      }
+    },
+    {
+      "name": "notation",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unique identification code of a sampling point type."
+      }
+    },
+    {
+      "name": "group",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The sampling point type parent group; URL (Uniform Resource Locator) code format."
+      }
+    },
+    {
+      "name": "group.label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The descriptive text of the sampling point type parent group."
+      }
+    }
+  ]
+}

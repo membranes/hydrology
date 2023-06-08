@@ -1,0 +1,113 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unique identification text of a sampling point."
+      }
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The label, name, of the sampling point of a set of chemical determinands."
+      }
+    },
+    {
+      "name": "comment",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "A description of the sampling point."
+      }
+    },
+    {
+      "name": "easting",
+      "type": "long",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Easting"
+      }
+    },
+    {
+      "name": "northing",
+      "type": "long",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Northing"
+      }
+    },
+    {
+      "name": "lat",
+      "type": "float",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Latitude"
+      }
+    },
+    {
+      "name": "long",
+      "type": "float",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Longitude"
+      }
+    },
+    {
+      "name": "notation",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unique identification code of the sampling point."
+      }
+    },
+    {
+      "name": "area.label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The label, i.e., name, of an area."
+      }
+    },
+    {
+      "name": "subArea.label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The label, i.e., name, of a subarea."
+      }
+    },
+    {
+      "name": "samplingPointStatus.label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Status: closed, open."
+      }
+    },
+    {
+      "name": "samplingPointType.label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The label, name, of a sampling point type."
+      }
+    }
+  ]
+}

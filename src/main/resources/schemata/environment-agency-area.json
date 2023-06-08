@@ -1,0 +1,77 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unique identification text of an area."
+      }
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The label, i.e., name, of an area."
+      }
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "An indiscernible legacy field."
+      }
+    },
+    {
+      "name": "notation",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The unique identification code of an area."
+      }
+    },
+    {
+      "name": "wimsEaAreaCode",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "An indiscernible legacy field."
+      }
+    },
+    {
+      "name": "sameAs",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "An indiscernible legacy field."
+      }
+    },
+    {
+      "name": "hasSubOrganization",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "A blob of the subareas of an area"
+      }
+    },
+    {
+      "name": "hasSubOrganization.label",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "A delimited blob of the subarea names of an area"
+      }
+    }
+  ]
+}

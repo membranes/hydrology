@@ -1,0 +1,21 @@
+nodes:
+  - name: determinands
+    url: "https://environment.data.gov.uk/water-quality/def/determinands.csv"
+    base: "determinands.csv"
+    schema: "determinands.json"
+  - name: sampling-point-types
+    url: "https://environment.data.gov.uk/water-quality/def/sampling-point-types.csv"
+    base: "sampling-point-types.csv"
+    schema: "sampling-point-types.json"
+  - name: environment-agency-area
+    url: "https://environment.data.gov.uk/water-quality/id/ea-area.csv"
+    base: "environment-agency-area.csv"
+    schema: "environment-agency-area.json"
+  - name: environment-agency-subarea
+    url: "https://environment.data.gov.uk/water-quality/id/ea-subarea.csv"
+    base: "environment-agency-subarea.csv"
+    schema: "environment-agency-subarea.json"
+  - name: sampling-point
+    url: "https://environment.data.gov.uk/water-quality/id/sampling-point.csv"
+    base: "sampling-point.csv"
+    schema: "sampling-point.json"
