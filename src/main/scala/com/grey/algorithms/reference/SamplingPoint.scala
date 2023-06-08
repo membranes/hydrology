@@ -16,6 +16,8 @@ class SamplingPoint(spark: SparkSession) {
    */
   def samplingPoint(reference: Dataset[Row], subareaFrame: Dataset[Row], samplingPointTypesFrame: Dataset[Row]): Unit = {
 
+    import spark.implicits._
+
 
     // Addressing the <dot> issue
     val blob = reference.toDF(reference.columns.map(_.replace(".", "_")): _*)
@@ -41,6 +43,14 @@ class SamplingPoint(spark: SparkSession) {
       data = data.withColumn(synonym, trim(col(synonym)))
     }
     data.show()
+
+
+    // Identifier Coding
+    data = data.join(subareaFrame, Seq("subarea_desc"), joinType = "left").drop(
+      $"area_desc", $"subarea_desc")
+    data.show()
+
+
 
   }
 
