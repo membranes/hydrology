@@ -16,7 +16,7 @@ class Subarea(spark: SparkSession) {
   /**
    * #
    *
-   * @param reference : The raw data
+   * @param reference : The subarea reference data
    */
   def subarea(reference: Dataset[Row]): Dataset[Row] = {
 
