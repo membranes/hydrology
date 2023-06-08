@@ -50,6 +50,10 @@ class SamplingPoint(spark: SparkSession) {
       $"area_desc", $"subarea_desc")
     data.show()
 
+    data = data.join(samplingPointTypesFrame.select($"sampling_point_type_id", $"sampling_point_type_desc"),
+      Seq("sampling_point_type_desc"), joinType = "left").drop($"sampling_point_type_desc")
+    data.show()
+
 
 
   }
