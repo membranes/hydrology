@@ -47,16 +47,16 @@ class DataSteps(spark: SparkSession) {
 
     // Structuring: The subarea & sampling point types
     val exclude = List("environment-agency-subarea", "sampling-point-types")
-
+    val subareaFrame = referenceInterface.structuringInitial(
+      node = nodes.filter(_.name == "environment-agency-subarea").head)
+    val samplingPointTypesFrame =  referenceInterface.structuringInitial(
+      node = nodes.filter(_.name == "sampling-point-types").head)
 
 
     // Structuring: All else, i.e., filter out subarea & sampling point types
     nodes.filterNot(x => exclude.contains(x.name)).foreach { node =>
-      // Read the reference data asset
-      val uri = Paths.get(localSettings.referencesDirectory, node.base).toString
-      val reference: Dataset[Row] = referenceData.referenceData(uri = uri, schemaString = node.schema)
-      // Structure
-      referenceInterface.structuringMiscellaneous(node = node, reference = reference)
+      referenceInterface.structuringMiscellaneous(
+        node = node, subareaFrame = subareaFrame, samplingPointTypesFrame = samplingPointTypesFrame)
     }
 
   }
