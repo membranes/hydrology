@@ -4,32 +4,45 @@
 
 <br>
 
-### Notes
+### Apache Spark Notes
 
-Remember, for local exploration of apache spark scala executions via the interface you will need the command akin to
+Remember, for local exploration of apache spark scala executions via the interface you will need the commands
 
-```shell
-spark-class.cmd org.apache.spark.deploy.master.Master
-spark-class.cmd org.apache.spark.deploy.worker.Worker spark://___.___._.__:7077
-
-spark-submit --class com.grey.HydroApp 
-	--master spark://___.___._.__:7077 
-	--total-executor-cores 4 
-	target/hydro-#.#.##-jar-with-dependencies.jars
+```bash
+    spark-class.cmd org.apache.spark.deploy.master.Master
 ```
 
-wherein `#.#.##` is the build number.  The compile command is
+<br>
 
-```shell
-mvn clean package
+```bash
+    spark-class.cmd org.apache.spark.deploy.worker.Worker spark://___.___._.__:7077
+```
+
+<br>
+
+```bash
+  mvn clean package
 ``` 
 
 <br>
+
+```shell
+    spark-submit --class com.grey.HydroApp 
+        --master spark://___.___._.__:7077 
+        --total-executor-cores 4 
+        target/hydro-#.#.##-jar-with-dependencies.jars
+```
+
+wherein `#.#.##` is the build number; depending on <span title='Project Object Model'>POM</span> settings, each run of `mvn clean package` creates a string 
+of the form `hydro-#.#.##-jar-with-dependencies.jars`.
+
+<br>
 <br>
 
-### Development Environment
+### Development Environment Notes
 
 * [Repositories for POM (Project Object Model)](https://mvnrepository.com/repos)
+* [Project Object Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)
 
 
 <br>
