@@ -46,6 +46,7 @@ class SamplingPointTypes(spark: SparkSession) {
       data = data.withColumnRenamed(existingName = name, newName = synonym)
       data = data.withColumn(synonym, trim(col(synonym)))
     }
+    data.show()
 
 
     // Hence
