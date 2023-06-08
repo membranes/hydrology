@@ -33,7 +33,7 @@ class SamplingPointTypes(spark: SparkSession) {
     // The names of the relevant columns in the raw data file, and the preferred
     // names, i.e., <synonyms>
     val names = Seq("notation", "label", "group", "group_label")
-    val synonyms = Seq("sampling_point_type_id", "sampling_point_type_description", "group", "group_desc")
+    val synonyms = Seq("sampling_point_type_id", "sampling_point_type_desc", "group", "group_desc")
 
 
     // The relevant area columns
