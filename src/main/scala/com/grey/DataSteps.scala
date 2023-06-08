@@ -2,11 +2,9 @@ package com.grey
 
 import com.grey.algorithms.reference.Structuring
 import com.grey.configurations.{EnvironmentAgency, EnvironmentAgencyNode}
-import com.grey.environment.LocalSettings
-import com.grey.source.{ReferenceAsset, ReferenceData}
-import org.apache.spark.sql.{Dataset, Row, SparkSession}
+import com.grey.source.ReferenceAsset
+import org.apache.spark.sql.SparkSession
 
-import java.nio.file.Paths
 import scala.collection.parallel.CollectionConverters._
 import scala.collection.parallel.immutable.ParSeq
 
@@ -20,9 +18,6 @@ class DataSteps(spark: SparkSession) {
   private val nodes: EnvironmentAgency.EnvironmentAgency = EnvironmentAgency.environmentAgency()
   private val getNode: EnvironmentAgencyNode = new EnvironmentAgencyNode(nodes = nodes)
   private val referenceInterface = new Structuring(spark = spark)
-
-  private val referenceData = new ReferenceData(spark = spark)
-  private val localSettings = new LocalSettings()
 
   /**
    *
@@ -49,7 +44,7 @@ class DataSteps(spark: SparkSession) {
     val exclude = List("environment-agency-subarea", "sampling-point-types")
     val subareaFrame = referenceInterface.structuringInitial(
       node = nodes.filter(_.name == "environment-agency-subarea").head)
-    val samplingPointTypesFrame =  referenceInterface.structuringInitial(
+    val samplingPointTypesFrame = referenceInterface.structuringInitial(
       node = nodes.filter(_.name == "sampling-point-types").head)
 
 
