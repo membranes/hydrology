@@ -12,7 +12,10 @@ class SamplingPoint(spark: SparkSession) {
 
   /**
    *
-   * @param reference: The raw data
+   * @param reference: The sampling point reference data
+   * @param subareaFrame: The structured subarea reference data
+   * @param samplingPointTypesFrame: The structured sampling point types reference data
+   *
    */
   def samplingPoint(reference: Dataset[Row], subareaFrame: Dataset[Row], samplingPointTypesFrame: Dataset[Row]): Unit = {
 
