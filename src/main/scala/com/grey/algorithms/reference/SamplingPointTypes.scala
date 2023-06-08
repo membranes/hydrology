@@ -13,7 +13,7 @@ class SamplingPointTypes(spark: SparkSession) {
 
   /**
    *
-   * @param reference : The raw data
+   * @param reference : The sampling point types reference data
    */
   def samplingPointTypes(reference: Dataset[Row]): Dataset[Row] = {
 
