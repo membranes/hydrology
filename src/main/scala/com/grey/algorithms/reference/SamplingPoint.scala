@@ -14,7 +14,7 @@ class SamplingPoint(spark: SparkSession) {
    *
    * @param reference: The raw data
    */
-  def samplingPoint(reference: Dataset[Row]): Unit = {
+  def samplingPoint(reference: Dataset[Row], subareaFrame: Dataset[Row], samplingPointTypesFrame: Dataset[Row]): Unit = {
 
 
     // Addressing the <dot> issue
