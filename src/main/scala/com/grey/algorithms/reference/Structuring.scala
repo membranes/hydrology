@@ -47,7 +47,8 @@ class Structuring(spark: SparkSession) {
     node.name match {
       case "environment-agency-area" => area.area(reference = reference)
       case "determinands" => determinands.determinands(reference = reference)
-      case "sampling-point" => samplingPoint.samplingPoint(reference = reference)
+      case "sampling-point" => samplingPoint.samplingPoint(
+        reference = reference, subareaFrame = subareaFrame, samplingPointTypesFrame = samplingPointTypesFrame)
       case _ => sys.error("Missing")
     }
 
