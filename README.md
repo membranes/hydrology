@@ -21,7 +21,7 @@ Remember, for local exploration of apache spark scala executions via the interfa
 <br>
 
 ```bash
-  mvn clean package
+    mvn clean package
 ``` 
 
 <br>
