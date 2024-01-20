@@ -28,24 +28,26 @@ wherein `#.#.##` is the build number; depending on <span title='Project Object M
 
 ### Development Environment Notes
 
-POM (Project Object Model)
-* [Repositories for POM (Project Object Model)](https://mvnrepository.com/repos)
-* [Project Object Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)
+Apache Spark Scala projects depend on
 
-[OpenJDK](https://hub.docker.com/_/openjdk)
-* [19](https://hub.docker.com/layers/library/openjdk/19-rc/images/sha256-973fe414a4e1f3e41e291b068183684a88827dd2cb5f78214da26632d5218702?context=explore)
+* POM (Project Object Model)
+  * [Repositories for POM (Project Object Model)](https://mvnrepository.com/repos)
+  * [Project Object Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)
 
-[Scala](https://scala-lang.org)
-* [2.13.12](https://scala-lang.org/download/2.13.12.html)
+* [OpenJDK](https://hub.docker.com/_/openjdk)
+  * [19](https://hub.docker.com/layers/library/openjdk/19-rc/images/sha256-973fe414a4e1f3e41e291b068183684a88827dd2cb5f78214da26632d5218702?context=explore)
 
-[Apache Maven](https://maven.apache.org)
-* [3.9.6](https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/)
+* [Scala](https://scala-lang.org)
+  * [2.13.12](https://scala-lang.org/download/2.13.12.html)
 
-[Apache Spark](https://spark.apache.org)
-* [3.4.2](https://dlcdn.apache.org/spark/spark-3.4.2/)
+* [Apache Maven](https://maven.apache.org)
+  * [3.9.6](https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/)
 
-[Hadoop](https://hadoop.apache.org)
-* [3.3.6](https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/)
+* [Apache Spark](https://spark.apache.org)
+  * [3.4.2](https://dlcdn.apache.org/spark/spark-3.4.2/)
+
+* [Hadoop](https://hadoop.apache.org)
+  * [3.3.6](https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/)
 
 
 ```shell
