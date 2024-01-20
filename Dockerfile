@@ -1,0 +1,3 @@
+FROM openjdk:19-rc
+
+ARG SCALA_VERSION=2.13.12
