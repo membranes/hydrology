@@ -16,3 +16,10 @@ ARG HADOOP_UNLOAD=https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-${H
 ARG SPARK_VERSION=3.4.2
 ARG SPARK_ARCHIVE=spark-${SPARK_VERSION}-bin-hadoop3
 ARG SPARK_UNLOAD=https://www.apache.org/dyn/closer.lua/spark/spark-${SPARK_VERSION}/${SPARK_ARCHIVE}.tgz
+
+RUN apt -y update && \
+    apt clean && \
+    wget -q ${SCALA_UNLOAD} && \
+    tar -zxvf ${SCALA_ARCHIVE}.tgz && \
+    mv ${SCALA_ARCHIVE} /opt/scala && \
+    rm ${SCALA_ARCHIVE}*
