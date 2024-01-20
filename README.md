@@ -39,7 +39,10 @@ POM (Project Object Model)
 * [2.13.12](https://scala-lang.org/download/2.13.12.html)
 
 [Apache Maven](https://maven.apache.org)
+* [3.9.6](https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/)
 
+Apache Spark
+* [3.4.2](https://dlcdn.apache.org/spark/spark-3.4.2/)
 
 
 <br>
