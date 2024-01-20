@@ -22,4 +22,8 @@ RUN apt -y update && \
     wget -q ${SCALA_UNLOAD} && \
     tar -zxvf ${SCALA_ARCHIVE}.tgz && \
     mv ${SCALA_ARCHIVE} /opt/scala && \
-    rm ${SCALA_ARCHIVE}*
+    rm ${SCALA_ARCHIVE}* && \
+    wget -q ${MAVEN_UNLOAD} && \
+    tar zxf ${MAVEN_ARCHIVE}.tar.gz && \
+    mv ${MAVEN_ARCHIVE} /opt/maven && \
+    rm ${MAVEN_ARCHIVE}*
