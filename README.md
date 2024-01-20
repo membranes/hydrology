@@ -35,6 +35,12 @@ POM (Project Object Model)
 [OpenJDK](https://hub.docker.com/_/openjdk)
 * [19](https://hub.docker.com/layers/library/openjdk/19-rc/images/sha256-973fe414a4e1f3e41e291b068183684a88827dd2cb5f78214da26632d5218702?context=explore)
 
+[Scala](https://scala-lang.org)
+* [2.13.12](https://scala-lang.org/download/2.13.12.html)
+
+[Apache Maven](https://maven.apache.org)
+
+
 
 <br>
 <br>
