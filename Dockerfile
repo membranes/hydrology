@@ -10,8 +10,8 @@ ARG MAVEN_ARCHIVE=apache-maven-${MAVEN_VERSION}-bin.tar.gz
 ARG MAVEN_UNLOAD=https://dlcdn.apache.org/maven/maven-${MAVEN_MAJOR}/${MAVEN_VERSION}/binaries/${MAVEN_ARCHIVE}
 
 ARG HADOOP_VERSION=3.3.6
-ARG HADOOP_ARCHIVE=hadoop-${HADOOP_VERSION}
-ARG HADOOP_UNLOAD=https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-${HADOOP_VERSION}/${HADOOP_ARCHIVE}.tar.gz
+ARG HADOOP_ARCHIVE=hadoop-${HADOOP_VERSION}.tar.gz
+ARG HADOOP_UNLOAD=https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-${HADOOP_VERSION}/${HADOOP_ARCHIVE}
 
 ARG SPARK_VERSION=3.4.2
 ARG SPARK_ARCHIVE=spark-${SPARK_VERSION}-bin-hadoop3
