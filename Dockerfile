@@ -1,8 +1,8 @@
 FROM openjdk:19-rc
 
 ARG SCALA_VERSION=2.13.12
-ARG SCALA_ARCHIVE=v${SCALA_VERSION}
-ARG SCALA_UNLOAD=https://github.com/scala/scala/archive/${SCALA_ARCHIVE}.tar.gz
+ARG SCALA_ARCHIVE=v${SCALA_VERSION}.tar.gz
+ARG SCALA_UNLOAD=https://github.com/scala/scala/archive/${SCALA_ARCHIVE}
 
 ARG MAVEN_MAJOR=3
 ARG MAVEN_VERSION=${MAVEN_MAJOR}.9.6
@@ -26,4 +26,6 @@ RUN apt -y update && \
     wget -q ${MAVEN_UNLOAD} && \
     tar zxf ${MAVEN_ARCHIVE}.tar.gz && \
     mv ${MAVEN_ARCHIVE} /opt/maven && \
-    rm ${MAVEN_ARCHIVE}*
+    rm ${MAVEN_ARCHIVE}* && \
+    wget -q ${HADOOP_UNLOAD} && \
+    tar zxf ${HADOOP_ARCHIVE}
