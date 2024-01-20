@@ -6,8 +6,8 @@ ARG SCALA_UNLOAD=https://github.com/scala/scala/archive/${SCALA_ARCHIVE}
 
 ARG MAVEN_MAJOR=3
 ARG MAVEN_VERSION=${MAVEN_MAJOR}.9.6
-ARG MAVEN_ARCHIVE=apache-maven-${MAVEN_VERSION}-bin
-ARG MAVEN_UNLOAD=https://dlcdn.apache.org/maven/maven-${MAVEN_MAJOR}/${MAVEN_VERSION}/binaries/${MAVEN_ARCHIVE}.tar.gz
+ARG MAVEN_ARCHIVE=apache-maven-${MAVEN_VERSION}-bin.tar.gz
+ARG MAVEN_UNLOAD=https://dlcdn.apache.org/maven/maven-${MAVEN_MAJOR}/${MAVEN_VERSION}/binaries/${MAVEN_ARCHIVE}
 
 ARG HADOOP_VERSION=3.3.6
 ARG HADOOP_ARCHIVE=hadoop-${HADOOP_VERSION}
