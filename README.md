@@ -50,13 +50,15 @@ Apache Spark Scala projects depend on
   * [3.3.6](https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/)
 
 
-```shell
-java -version
-scala -version
-mvn --version
-hadoop version
-spark-submit --version
-```
+Outline the software versions via
+
+> ```shell
+> java -version
+> scala -version
+> mvn --version
+> hadoop version
+> spark-submit --version
+> ```
 
 <br>
 <br>
