@@ -14,18 +14,18 @@ ARG HADOOP_ARCHIVE=hadoop-${HADOOP_VERSION}.tar.gz
 ARG HADOOP_UNLOAD=https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-${HADOOP_VERSION}/${HADOOP_ARCHIVE}
 
 ARG SPARK_VERSION=3.4.2
-ARG SPARK_ARCHIVE=spark-${SPARK_VERSION}-bin-hadoop3
-ARG SPARK_UNLOAD=https://www.apache.org/dyn/closer.lua/spark/spark-${SPARK_VERSION}/${SPARK_ARCHIVE}.tgz
+ARG SPARK_ARCHIVE=spark-${SPARK_VERSION}-bin-hadoop3.tgz
+ARG SPARK_UNLOAD=https://www.apache.org/dyn/closer.lua/spark/spark-${SPARK_VERSION}/${SPARK_ARCHIVE}
 
 RUN apt -y update && \
     apt clean && \
     wget -q ${SCALA_UNLOAD} && \
-    tar -zxvf ${SCALA_ARCHIVE}.tgz && \
+    tar zxf ${SCALA_ARCHIVE} && \
     mv ${SCALA_ARCHIVE} /opt/scala && \
-    rm ${SCALA_ARCHIVE}* && \
+    rm ${SCALA_ARCHIVE} && \
     wget -q ${MAVEN_UNLOAD} && \
-    tar zxf ${MAVEN_ARCHIVE}.tar.gz && \
+    tar zxf ${MAVEN_ARCHIVE} && \
     mv ${MAVEN_ARCHIVE} /opt/maven && \
-    rm ${MAVEN_ARCHIVE}* && \
+    rm ${MAVEN_ARCHIVE} && \
     wget -q ${HADOOP_UNLOAD} && \
     tar zxf ${HADOOP_ARCHIVE}
