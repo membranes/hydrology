@@ -45,7 +45,7 @@ POM (Project Object Model)
 * [3.4.2](https://dlcdn.apache.org/spark/spark-3.4.2/)
 
 [Hadoop](https://hadoop.apache.org)
-* [3.3.6](https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz)
+* [3.3.6](https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/)
 
 
 ```shell
