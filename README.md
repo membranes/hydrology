@@ -44,6 +44,17 @@ POM (Project Object Model)
 [Apache Spark](https://spark.apache.org)
 * [3.4.2](https://dlcdn.apache.org/spark/spark-3.4.2/)
 
+[Hadoop](https://hadoop.apache.org)
+* [3.3.6](https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz)
+
+
+```shell
+java -version
+scala -version
+mvn --version
+hadoop version
+spark-submit --version
+```
 
 <br>
 <br>
