@@ -26,6 +26,12 @@ wherein `#.#.##` is the build number; depending on <span title='Project Object M
 
 <br>
 
+### Docker
+
+* https://docs.docker.com/build/buildkit/
+
+<br>
+
 ### Development Environment Notes
 
 Apache Spark Scala projects depend on
