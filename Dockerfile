@@ -1,13 +1,17 @@
+
+FROM maven:3.9.6-eclipse-temurin-21-alpine
+ENV HOME=/usr/app
+WORKDIR $HOME
+RUN mkdir -p $HOME
+COPY . $HOME
+RUN --mount=type=cache,target=/root/.m2 mvn -f $HOME/pom.xml clean package
+
+
 FROM openjdk:19-rc
 
 ARG SCALA_VERSION=2.13.12
 ARG SCALA_ARCHIVE=v${SCALA_VERSION}
 ARG SCALA_UNLOAD=https://github.com/scala/scala/archive/${SCALA_ARCHIVE}.tar.gz
-
-ARG MAVEN_MAJOR=3
-ARG MAVEN_VERSION=${MAVEN_MAJOR}.9.6
-ARG MAVEN_ARCHIVE=apache-maven-${MAVEN_VERSION}-bin
-ARG MAVEN_UNLOAD=https://dlcdn.apache.org/maven/maven-${MAVEN_MAJOR}/${MAVEN_VERSION}/binaries/${MAVEN_ARCHIVE}.tar.gz
 
 ARG HADOOP_VERSION=3.3.6
 ARG HADOOP_ARCHIVE=hadoop-${HADOOP_VERSION}
@@ -20,7 +24,11 @@ ARG SPARK_UNLOAD=https://www.apache.org/dyn/closer.lua/spark/spark-${SPARK_VERSI
 RUN apt -y update && \
     apt clean && \
     wget -q ${SCALA_UNLOAD} && tar zxf ${SCALA_ARCHIVE}.tar.gz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
-    wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}* && \
     wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}* && \
     wget -q ${SPARK_UNLOAD} && tar -zxvf ${SPARK_ARCHIVE}.tgz && mv ${SPARK_ARCHIVE} /opt/spark && rm ${SCALA_ARCHIVE}*
 
+
+ENV SCALA_HOME=/opt/scala
+ENV HADOOP_HOME=/opt/hadoop
+ENV SPARK_HOME=/opt/spark
+ENV PATH=$SCALA_HOME/bin:$HADOOP_HOME/bin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
