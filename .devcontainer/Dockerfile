@@ -1,5 +1,5 @@
 # The base image
-FROM greyhypotheses/greyhypotheses/aiu:spark_scala_3.5.0
+FROM greyhypotheses/aiu:spark_scala_3.5.0
 
 
 # Within the greyhypotheses/aiu:spark_scala_3.5.0 base image beware of the settings
