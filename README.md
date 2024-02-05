@@ -55,6 +55,7 @@ Apache Spark Scala projects depend on
 * [Hadoop](https://hadoop.apache.org)
   * [3.3.6](https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/)
 
+<br>
 
 Outline the software versions via
 
