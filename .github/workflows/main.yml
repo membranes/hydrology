@@ -1,0 +1,29 @@
+# https://github.com/marketplace/actions/build-and-push-docker-images  
+name: Hydrology Project
+
+# Later: Via the master branch only
+on: [push]
+
+jobs:
+    development:
+        name: For Development
+        runs-on: ubuntu-latest    
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+
+            - name: Login to Docker Hub
+              uses: docker/login-action@v3
+              with:
+                username: ${{ secrets.DOCKER_NAME }}
+                password: ${{ secrets.DOCKER_ENTRY }}
+
+            - name: Build the Docker image
+              shell: bash
+              env:
+                REGISTRY: 'greyhypotheses'
+                REPOSITORY: 'base'
+                IMAGE_TAG: 'hydrology'
+              run: |
+                docker build . --file .base/Dockerfile --tag "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
+                docker push "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
