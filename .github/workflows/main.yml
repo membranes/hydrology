@@ -5,8 +5,25 @@ name: Hydrology Project
 on: [push]
 
 jobs:
-    development:
-        name: For Development
+
+    build:
+        name: Build
+        runs-on: ubuntu-latest    
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v4
+
+          - name: Set up Java
+            uses: actions/set-java@v3
+            with:
+                java-version: '21'
+                distribution: 'temurin'
+    
+          - name: Build with Maven
+            run: mvn -B package --file pom.xml
+
+    docker:
+        name: Docker
         runs-on: ubuntu-latest    
         steps:
             - name: checkout
