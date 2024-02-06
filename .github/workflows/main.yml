@@ -42,5 +42,5 @@ jobs:
                 REPOSITORY: 'base'
                 IMAGE_TAG: 'hydrology'
               run: |
-                docker build . --file .base/Dockerfile --tag "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
+                docker build . --file Dockerfile --tag "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
                 docker push "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
