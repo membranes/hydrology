@@ -16,6 +16,7 @@
 
     <properties>
         <scala.version>2.13.8</scala.version>
+        <!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-release.html -->
         <!-- <maven.compiler.release>12</maven.compiler.release> -->
         <!-- <maven.compiler.source>12</maven.compiler.source> -->
         <!-- <maven.compiler.target>12</maven.compiler.target> -->
